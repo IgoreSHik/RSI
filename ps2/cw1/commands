@@ -1,0 +1,9 @@
+docker network create rsi
+
+cd server
+docker build -t rsi-2-server .
+docker run -p 1099:1099 --name rsi-server --network rsi rsi-2-server
+
+cd client
+docker build -t rsi-2-client .
+docker run --network rsi rsi-2-client
